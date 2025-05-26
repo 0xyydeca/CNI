@@ -1,0 +1,16 @@
+,logfc,logfc,logfc,Gene
+,mean,count,std,<lambda>
+Pathway,,,,
+Cell cycle,-0.586,74,0.328,"CCNA2, PKMYT1, CCNB1"
+Oocyte meiosis,-0.463,38,0.346,"ANAPC1, SGO1, MAPK13"
+Progesterone-mediated oocyte maturation,-0.42,35,0.374,"CCNA2, HSP90AA1, PKMYT1"
+Mismatch repair,-0.39,13,0.243,"RFC5, RFC2, PCNA"
+DNA replication,-0.384,30,0.127,"RFC5, MCM2, MCM7"
+Base excision repair,-0.314,19,0.216,"RFC5, HMGB1, POLE3"
+Protein export,0.276,13,0.15,"SEC11C, SEC63, SEC61B"
+Thyroid hormone synthesis,0.242,18,0.333,"CREB3L2, CANX, DUOX1"
+Nucleocytoplasmic transport,-0.216,28,0.157,"XPO1, RAN, NDC1"
+Protein processing in endoplasmic reticulum,0.213,81,0.22,"RPN1, EDEM1, DDOST"
+ATP-dependent chromatin remodeling,-0.125,22,0.38,"RUVBL1, CHRAC1, SMARCD1"
+Antigen processing and presentation,0.109,18,0.311,"HSP90AA1, TAPBP, HSPA8"
+Ferroptosis,-0.024,12,0.463,"TP53, ATG7, SAT2"
