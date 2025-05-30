@@ -91,12 +91,11 @@ csa_boundaries, csa_role_labels, csa_role_positions = get_boundaries_and_positio
 
 voc_n = len(voc_genes)
 csa_n = len(csa_genes)
-# Set total width (e.g., 33) and calculate width ratios
-fig_width = 33
+fig_width = 28  # Increased width further to better accommodate longer role names and more genes
+fig_height = 10  # Keeping the same height
 width_ratios = [csa_n, voc_n]
 total = sum(width_ratios)
-# Use GridSpec to create two axes with different widths, stacked vertically
-fig = plt.figure(figsize=(fig_width, 12))
+fig = plt.figure(figsize=(fig_width, fig_height))
 gs = gridspec.GridSpec(2, 1, height_ratios=[1, 1])
 
 # CsA panel (top)
@@ -108,7 +107,7 @@ ax_csa.set_title('CsA vs Control', fontsize=20, fontweight='bold')
 ax_csa.set_xticks(csa_x)
 ax_csa.set_xticklabels(csa_genes, rotation=45, ha='right', fontsize=14, fontweight='bold', style='italic')
 # ax_csa.set_xlabel('Gene', fontsize=16, fontweight='bold', labelpad=12)
-ax_csa.set_ylim(-0.35, 0.8)
+ax_csa.set_ylim(-0.5, 1.0)
 ax_csa.set_xlim(-0.5, len(csa_genes) - 0.5)
 ax_csa.yaxis.grid(True, linestyle='--', alpha=0.5)
 for idx in csa_boundaries:
@@ -132,7 +131,7 @@ ax_voc.set_title('VOC vs Control', fontsize=20, fontweight='bold')
 ax_voc.set_xticks(voc_x)
 ax_voc.set_xticklabels(voc_genes, rotation=45, ha='right', fontsize=14, fontweight='bold', style='italic')
 ax_voc.set_xlabel('Gene', fontsize=16, labelpad=12)
-ax_voc.set_ylim(-0.35, 0.8)
+ax_voc.set_ylim(-0.5, 1.0)
 ax_voc.set_xlim(-0.5, len(voc_genes) - 0.5)
 ax_voc.yaxis.grid(True, linestyle='--', alpha=0.5)
 for idx in voc_boundaries:
@@ -148,7 +147,8 @@ for label in ax_voc.get_yticklabels():
     label.set_fontweight('bold')
 
 fig.suptitle('Endoplasmic Reticulum', fontsize=26, fontweight='bold', y=0.98, x=0.08, ha='left')
-plt.savefig('Genes/ER_panel_vertical.png', dpi=300, bbox_inches='tight')
+# Save to Downloads folder
+plt.savefig('/Users/kyaryeh/Downloads/er.png', dpi=300, bbox_inches='tight')
 plt.close()
 
-print('Vertical panel ER bar plot saved as Genes/ER_panel_vertical.png') 
+print('ER bar plot saved to Downloads folder') 
