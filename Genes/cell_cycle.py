@@ -75,10 +75,11 @@ csa_boundaries, csa_role_labels, csa_role_positions = get_boundaries_and_positio
 
 voc_n = len(voc_genes)
 csa_n = len(csa_genes)
-fig_width = 33
+fig_width = 16  # Updated width
+fig_height = 8  # Updated height
 width_ratios = [csa_n, voc_n]
 total = sum(width_ratios)
-fig = plt.figure(figsize=(fig_width, 12))
+fig = plt.figure(figsize=(fig_width, fig_height))
 gs = gridspec.GridSpec(2, 1, height_ratios=[1, 1])
 
 # CsA panel (top)
@@ -90,13 +91,13 @@ ax_csa.set_title('CsA vs Control', fontsize=20, fontweight='bold')
 ax_csa.set_xticks(csa_x)
 ax_csa.set_xticklabels(csa_genes, rotation=45, ha='right', fontsize=14, fontweight='bold', style='italic')
 # ax_csa.set_xlabel('Gene', fontsize=16, fontweight='bold', labelpad=12)
-ax_csa.set_ylim(-1.15, 0.75)
+ax_csa.set_ylim(-1.0, 0.75)  # Updated y-axis limit
 ax_csa.set_xlim(-0.5, len(csa_genes) - 0.5)
 ax_csa.yaxis.grid(True, linestyle='--', alpha=0.5)
 for idx in csa_boundaries:
     ax_csa.axvline(idx - 0.5, color='k', linestyle='--', linewidth=1.5)
 ylim = ax_csa.get_ylim()
-label_y = ylim[0] + (ylim[1] - ylim[0]) * 0.92
+label_y = ylim[0] + (ylim[1] - ylim[0]) * 0.88
 for label, (start, end) in zip(csa_role_labels, csa_role_positions):
     xpos = (start + end - 1) / 2
     ax_csa.text(xpos, label_y, label, ha='center', va='bottom', fontsize=13, fontweight='bold', clip_on=False)
@@ -114,13 +115,13 @@ ax_voc.set_title('VOC vs Control', fontsize=20, fontweight='bold')
 ax_voc.set_xticks(voc_x)
 ax_voc.set_xticklabels(voc_genes, rotation=45, ha='right', fontsize=14, fontweight='bold', style='italic')
 ax_voc.set_xlabel('Gene', fontsize=16, labelpad=12)
-ax_voc.set_ylim(-1.15, 0.75)
+ax_voc.set_ylim(-1.0, 0.75)  # Updated y-axis limit
 ax_voc.set_xlim(-0.5, len(voc_genes) - 0.5)
 ax_voc.yaxis.grid(True, linestyle='--', alpha=0.5)
 for idx in voc_boundaries:
     ax_voc.axvline(idx - 0.5, color='k', linestyle='--', linewidth=1.5)
 ylim = ax_voc.get_ylim()
-label_y = ylim[0] + (ylim[1] - ylim[0]) * 0.92
+label_y = ylim[0] + (ylim[1] - ylim[0]) * 0.88
 for label, (start, end) in zip(voc_role_labels, voc_role_positions):
     xpos = (start + end - 1) / 2
     ax_voc.text(xpos, label_y, label, ha='center', va='bottom', fontsize=13, fontweight='bold', clip_on=False)
@@ -130,7 +131,8 @@ for label in ax_voc.get_yticklabels():
     label.set_fontweight('bold')
 
 fig.suptitle('Cell Cycle', fontsize=26, fontweight='bold', y=0.98, x=0.08, ha='left')
-plt.savefig('Genes/cell_cycle.png', dpi=300, bbox_inches='tight')
+# Save to Downloads folder
+plt.savefig('/Users/kyaryeh/Downloads/cell_cycle.png', dpi=300, bbox_inches='tight')
 plt.close()
 
-print('Vertical panel Cell Cycle bar plot saved as Genes/cell_cycle.png') 
+print('Cell Cycle bar plot saved to Downloads folder') 
